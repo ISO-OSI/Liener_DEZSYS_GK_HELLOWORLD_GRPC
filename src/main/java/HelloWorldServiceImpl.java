@@ -5,7 +5,7 @@ public class HelloWorldServiceImpl extends HelloWorldServiceGrpc.HelloWorldServi
     @Override
     public void hello( Hello.HelloRequest request, StreamObserver<Hello.HelloResponse> responseObserver) {
 
-        System.out.println("Handling hello endpoint: " + request.toString());
+        System.out.println("Handling hello request for " + request.getFirstname() + " " + request.getLastname());
 
         String text = "Hello World, " + request.getFirstname() + " " + request.getLastname();
         Hello.HelloResponse response = Hello.HelloResponse.newBuilder().setText(text).build();
